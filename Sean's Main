@@ -1,0 +1,76 @@
+package xom.kbg;
+
+//Imports
+import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
+
+	//Mod ID
+	@Mod(modid = CarbonReconstruction.MODID, version = CarbonReconstruction.VERSION)
+	public class CarbonReconstruction {
+
+	//The Main Stuff
+	public static final String MODID = "CarbonReconstruction";
+	public static final String VERSION = "1.0.0";
+
+	//Blocks
+	public static Block CarbonReconstructorBlock;
+	public static Block PressureChamberBlock;
+	
+	//Items
+	public static Item LPCarbonChunk;
+	public static Item MPCarbonChunk;
+	public static Item HPCarbonChunk;
+	public static Item DataCard;
+	public static Item CoalCard;
+	public static Item DiamondCard;
+	
+	//New Creative Tab
+	public static CreativeTabs CarbonReconstruction = new CreativeTabs("Carbon Reconstruction")
+	{
+		public Item getTabIconItem()
+	{	
+		return Items.coal;
+	}
+};
+	
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event){
+		CarbonReconstructorBlock = new CarbonReconstructorBlock().setBlockName("Carbon Manipulator").setCreativeTab(CarbonReconstruction).setBlockTextureName(MODID + ":" + "carbonreconstructor");
+		GameRegistry.registerBlock(CarbonReconstructorBlock, "Carbon Manipulator");
+	
+		PressureChamberBlock = new PressureChamberBlock().setBlockName("Pressure Chamber").setCreativeTab(CarbonReconstruction).setBlockTextureName(MODID + ":" + "PressureChamber");
+		GameRegistry.registerBlock(PressureChamberBlock, "Pressure Chamber");
+	
+		LPCarbonChunk = new Item().setUnlocalizedName("Pressurised Carbon Chunk").setCreativeTab(CarbonReconstruction).setTextureName(MODID + ":" + "LP Carbon Chunk");
+		GameRegistry.registerItem(LPCarbonChunk, "Pressurised Carbon Chunk");
+		
+		MPCarbonChunk = new Item().setUnlocalizedName("Highly Pressurised Carbon Chunk").setCreativeTab(CarbonReconstruction).setTextureName(MODID + ":" + "MP Carbon Chunk");
+		GameRegistry.registerItem(MPCarbonChunk, "Highly Pressurised Carbon Chunk");
+		
+		HPCarbonChunk = new Item().setUnlocalizedName("Extremely Pressurised Carbon Chunk").setCreativeTab(CarbonReconstruction).setTextureName(MODID + ":" + "HP Carbon Chunk");
+		GameRegistry.registerItem(HPCarbonChunk, "Extremely Pressurised Carbon Chunk");
+		
+		DataCard = new Item().setUnlocalizedName("Carbon Manipulator Control Panel").setCreativeTab(CarbonReconstruction).setTextureName(MODID + ":" + "DataCard");
+		GameRegistry.registerItem(DataCard, "Carbon Manipulator Control Panel");
+		
+		CoalCard = new Item().setUnlocalizedName("Carbon Data Card - Coal").setCreativeTab(CarbonReconstruction).setTextureName(MODID + ":" + "CoalCard");
+		GameRegistry.registerItem(CoalCard, "Carbon Data Card - Coal");
+		
+		DiamondCard = new Item().setUnlocalizedName("Carbon Data Card - Diamond").setCreativeTab(CarbonReconstruction).setTextureName(MODID + ":" + "DiamondCard");
+		GameRegistry.registerItem(DiamondCard, "Carbon Data Card - Diamond");
+		
+	}			
+	
+	
+	@EventHandler
+	public void init (FMLPreInitializationEvent event){
+
+	}
+	
+}  
